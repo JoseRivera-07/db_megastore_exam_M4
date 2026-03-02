@@ -13,6 +13,8 @@ CREATE TABLE customers (
 	phone TEXT NOT NULL, 
 	address TEXT NOT NULL
 );
+-- Column city added to customers at Mon March 2 : 18:53
+ALTER TABLE customers ADD COLUMN city TEXT NOT NULL;
 
 
 -- Creation of the categories table
