@@ -1,4 +1,5 @@
-INSERT INTO customers (name, email, phone, address, city) VALUES 
+
+-- Inserting data into the customers tableINSERT INTO customers (name, email, phone, address, city) VALUES 
 ('Ana Torres', 'ana.torres@outlook.com', '3004445566', 'Diag 50 #20-10', 'Barranquilla'),
 ('Andres Cepeda',	'andres.c@musica.com',	'3105558888',	'Calle 85 #11-20', 'Bogota'),
 ('Camila Cabello', 'camila.c@havana.com',	'3009990000',	'Calle 50 #50-50', 'Miami'),
@@ -13,6 +14,7 @@ INSERT INTO customers (name, email, phone, address, city) VALUES
 ('Pedro Martinez',	'pedro.martinez@yahoo.com',	'3151112233', 'Calle 100 #15-20', 'Bogota'),
 ('Sofia Vergara',	'sofia.v@cine.com',	'3007776655',	'Calle 10 #10-10', 'Cartagena');
 
+-- Creation of product categories
 INSERT INTO categories (name) VALUES
 ('Kitchen'),
 ('Accessories'),
@@ -20,8 +22,7 @@ INSERT INTO categories (name) VALUES
 ('Electronics'),
 ('Stationery');
 
-
-INSERT INTO suppliers (name, email) VALUES 
+-- Creation of suppliersINSERT INTO suppliers (name, email) VALUES 
 ('Accesorios Total', 'contacto@accesoriostotal.com'),
 ('Cables & Conectores', 'info@cablesconectores.com'),
 ('ElectroHogar', 'ventas@electrohogar.com'),
@@ -33,8 +34,7 @@ INSERT INTO suppliers (name, email) VALUES
 ('SoundWave Ltd', 'contact@soundwave.com'),
 ('TechDistro SAS', 'ventas@techdistro.com');
 
-SELECT * FROM categories;
-
+-- Insert to products table
 INSERT INTO products (name, id_category, price, sku, stock) VALUES 
 ('Batidora Inmersion', 1, 120000, 'BTR-IMU-002', 10 ),
 ('Cafetera Oster 12 Tazas', 1, 180000, 'CFT-OST-001', 10),
@@ -58,6 +58,7 @@ INSERT INTO products (name, id_category, price, sku, stock) VALUES
 ('Marcadores Sharpie x12', 5, 35000, 'MKR-SHR-012', 20),
 ('Resma Papel Carta 500', 5, 25000, 'PPR-RSM-500', 20);
 
+-- Creation of product-supplier relationship 
 INSERT INTO suppliers_products (id_supplier, id_product) VALUES 
 (1,4),
 (1,7),
