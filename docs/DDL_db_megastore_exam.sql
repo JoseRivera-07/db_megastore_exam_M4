@@ -65,24 +65,6 @@ CREATE TABLE suppliers_products (
 	details TEXT
 );
 
--- Payment methods table to record additional details of the purchase payment
-CREATE TABLE payment_methods (
-	id SERIAL PRIMARY KEY NOT NULL,
-	method_name TEXT NOT NULL
-);
-
--- An ENUM is used to create payment states as a data type
-CREATE TYPE  payment_status AS ENUM (
-	'PENDING', 'APPROVED', 'FAILED', 'REFUNDED'
-);
-
--- The transactions table, status uses the data type created earlier, and the default is PENDING
-CREATE TABLE transactions (
-	id SERIAL PRIMARY KEY NOT NULL,
-	id_method INTEGER NOT NULL REFERENCES payment_methods(id),
-	status payment_status DEFAULT 'PENDING'
-); 
-
 -- Table sale_items to avoid many-to-many (N:M) relationships between products and sale
 CREATE TABLE sale_items (
 	id SERIAL PRIMARY KEY NOT NULL,
@@ -94,7 +76,6 @@ CREATE TABLE sale_items (
 -- foreign key, and contains the timestamp attribute to identify and record the date of the sale.
 CREATE TABLE sales (
 	id SERIAL PRIMARY KEY NOT NULL,
-	transaction_id INTEGER NOT NULL REFERENCES transactions(id),
 	sold_on TIMESTAMP DEFAULT NOW(),
 	items_sale INTEGER NOT NULL REFERENCES sale_items(id),
 	id_customer INTEGER NOT NULL REFERENCES customers(id),
